@@ -19,6 +19,6 @@
         <Button Content="収入科目マスター" Margin="0,63,40,0" VerticalAlignment="Top" Height="39" Grid.Row="1" HorizontalAlignment="Right" Width="124"/>
         <Button Content="支出科目マスター" Margin="0,107,40,0" VerticalAlignment="Top" Height="39" Grid.Row="1" HorizontalAlignment="Right" Width="124"/>
         <Button Content="繰越金額マスター" Margin="0,151,40,0" VerticalAlignment="Top" Height="39" Grid.Row="1" HorizontalAlignment="Right" Width="124" IsEnabled="False"/>
-        <Button Content="オプション" Margin="0,195,40,0" VerticalAlignment="Top" Height="39" Grid.Row="1" HorizontalAlignment="Right" Width="124"/>
+        <Button Content="オプション" Margin="0,195,40,0" VerticalAlignment="Top" Height="39" Grid.Row="1" HorizontalAlignment="Right" Width="124" Click="Button_Click"/>
     </Grid>
 </Window>

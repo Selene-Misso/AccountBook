@@ -20,6 +20,8 @@ namespace AccountBookSystem
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private OptionWindow ow = null;
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -28,6 +30,16 @@ namespace AccountBookSystem
 		private void Quit_Click(object sender, RoutedEventArgs e)
 		{
 			this.Close();
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			if (ow != null)
+			{
+				ow.Close();
+			}
+			ow = new OptionWindow();
+			ow.Show();
 		}
 	}
 }
