@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,13 +27,83 @@ namespace AccountBookSystem
 		// ファイル選択ダイアログボックス
 		private Microsoft.Win32.OpenFileDialog ofd = new Microsoft.Win32.OpenFileDialog();
 		private string filename;
+		// 設定ファイル名
+		string path = "settings/options.ini";
 
 		public OptionWindow()
 		{
 			InitializeComponent();
 		}
+		
+		private void fileSelect_Click(object sender, RoutedEventArgs e)
+		{
+			// 構成
+			ofd.InitialDirectory = System.IO.Path.GetDirectoryName(filePath.Text); // 起動ディレクトリ
+			ofd.FileName = System.IO.Path.GetFileName(filePath.Text);
+			ofd.DefaultExt = ".accdb"; // デフォルト 拡張子
+			ofd.Filter = "データベース (.accdb)|*.accdb"; // 拡張子フィルタ
 
-		private void Button_Click(object sender, RoutedEventArgs e)
+			// ダイアログ表示
+			Nullable<bool> result = ofd.ShowDialog();
+
+			// 結果を判定
+			if (result == true)
+			{
+				// ファイル名
+				filename = ofd.FileName;
+				this.filePath.Text = filename;
+				// 変更フラグ変更
+				isChanged = true;
+			}
+		}
+
+		private void optionWindow_Loaded(object sender, RoutedEventArgs e)
+		{
+			// 設定ファイル読み込み
+			try
+			{
+				using( StreamReader sr = new StreamReader(path, Encoding.GetEncoding("utf-8")))
+				{
+					// 1行ずつ読み込み
+					while (!sr.EndOfStream)
+					{
+						string line = sr.ReadLine();
+						string[] values = line.Split('=');
+
+						// 属性 Path
+						if (values[0] == "Path")
+						{
+							filePath.Text = values[1].Substring(1,values[1].Length-2);
+						}
+						
+					}
+
+				sr.Close();
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "エラー", MessageBoxButton.OK, MessageBoxImage.Error);
+				this.Close();
+			}
+
+		}
+
+		private void ok_Click(object sender, RoutedEventArgs e)
+		{
+			if (isChanged == false)
+			{
+				this.Close();
+			}
+			else
+			{
+				// 保存して終了
+				save_Setting();
+				this.Close();
+			}
+		}
+
+		private void cancel_Click(object sender, RoutedEventArgs e)
 		{
 			if (isChanged == false)
 			{
@@ -50,42 +121,29 @@ namespace AccountBookSystem
 					this.Close();
 				}
 			}
+
 		}
 
-		private void Button_Click_1(object sender, RoutedEventArgs e)
+		/// <summary>
+		/// 設定ファイルを書き込む
+		/// </summary>
+		private void save_Setting()
 		{
-			if (isChanged == false)
+			try
 			{
-				this.Close();
+				using (StreamWriter sw = new StreamWriter(path,false, Encoding.GetEncoding("utf-8")))
+				{
+					sw.WriteLine("Path=\""+filePath.Text+"\"");
+					sw.WriteLine("End=1");
+
+					sw.Close();
+				}
 			}
-			else
+			catch (Exception ex)
 			{
-				// 保存して終了
-				this.Close();
+				MessageBox.Show(ex.Message, "エラー", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
+
 		}
-
-		private void fileSelect_Click(object sender, RoutedEventArgs e)
-		{
-			// 構成
-			ofd.FileName = "Document"; // デフォルト ファイル名
-			ofd.DefaultExt = ".txt"; // デフォルト 拡張子
-			ofd.Filter = "Text documents (.txt)|*.txt"; // 拡張子フィルタ
-
-			// ダイアログ表示
-			Nullable<bool> result = ofd.ShowDialog();
-
-			// 結果を判定
-			if (result == true)
-			{
-				// ファイル名
-				filename = ofd.FileName;
-				this.filePath.Text = filename;
-				// 変更フラグ変更
-				isChanged = true;
-			}
-		}
-
-		
 	}
 }
