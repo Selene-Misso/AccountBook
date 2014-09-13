@@ -1,0 +1,70 @@
+﻿<Window x:Name="receiptJournal" x:Class="AccountBookSystem.ReceiptJournal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="出納帳" Height="300" Width="895.375">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="66"/>
+            <RowDefinition Height="149*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="closeButton" Content="閉じる" Height="28" Margin="0,10,10,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Right" Width="74"/>
+        <Label Content="出納帳" Height="33" Margin="386,10,388,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="seirekiSelect" HorizontalAlignment="Left" Height="24" Margin="27,17,0,0" VerticalAlignment="Top" Width="81">
+            <ComboBoxItem Content="平成" HorizontalAlignment="Left" Width="97"/>
+        </ComboBox>
+        <Label Content="年" HorizontalAlignment="Left" Margin="160,15,0,0" VerticalAlignment="Top" Height="28" Width="22"/>
+        <TextBox x:Name="seirekiNum" HorizontalAlignment="Left" Height="24" Margin="112,17,0,0" TextWrapping="Wrap" Text="Num" VerticalAlignment="Top" Width="48" HorizontalContentAlignment="Right"/>
+        <ComboBox x:Name="monthNum" HorizontalAlignment="Left" Height="24" Margin="191,17,0,0" VerticalAlignment="Top" Width="64">
+            <ComboBoxItem Content="1" HorizontalAlignment="Left" Width="97"/>
+            <ComboBoxItem Content="2" HorizontalAlignment="Left" Width="97"/>
+            <ComboBoxItem Content="3" HorizontalAlignment="Left" Width="97"/>
+            <ComboBoxItem Content="4" HorizontalAlignment="Left" Width="97"/>
+            <ComboBoxItem Content="5" HorizontalAlignment="Left" Width="97"/>
+            <ComboBoxItem Content="6" HorizontalAlignment="Left" Width="97"/>
+            <ComboBoxItem Content="7" HorizontalAlignment="Left" Width="97"/>
+            <ComboBoxItem Content="8" HorizontalAlignment="Left" Width="97"/>
+            <ComboBoxItem Content="9" HorizontalAlignment="Left" Width="97"/>
+            <ComboBoxItem Content="10" HorizontalAlignment="Left" Width="97"/>
+            <ComboBoxItem Content="11" HorizontalAlignment="Left" Width="97"/>
+            <ComboBoxItem Content="12" HorizontalAlignment="Left" Width="97"/>
+        </ComboBox>
+        <Label Content="月" HorizontalAlignment="Left" Margin="255,15,0,0" VerticalAlignment="Top" Height="28" Width="22"/>
+        <RadioButton x:Name="outSelect" Content="出金" HorizontalAlignment="Left" Margin="26,12,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="select" Height="18" Width="47" FontSize="14"/>
+        <RadioButton x:Name="inSelect" Content="入金" HorizontalAlignment="Left" Margin="26,35,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="select" Height="18" Width="47" FontSize="14"/>
+        <Line Stretch="Fill" Stroke="Black" X2="1" VerticalAlignment="Bottom" Margin="10,0"/>
+        <Line Stretch="Fill" Stroke="Black" X2="1" VerticalAlignment="Bottom" Margin="10,0" Grid.Row="1"/>
+        <DatePicker HorizontalAlignment="Left" Height="25" Margin="76,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" BorderBrush="Black" SelectedDateFormat="Short" Text="2014/09/13"/>
+        <Label Content="月日" HorizontalAlignment="Left" Height="19" Margin="76,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" BorderBrush="Black" HorizontalContentAlignment="Center" BorderThickness="1" VerticalContentAlignment="Center" Padding="0">
+            <Label.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+            </Label.Background>
+        </Label>
+        <Label Content="科目" HorizontalAlignment="Left" Height="19" Margin="179,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="169" BorderBrush="Black" HorizontalContentAlignment="Center" BorderThickness="1" VerticalContentAlignment="Center" Padding="0">
+            <Label.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+            </Label.Background>
+        </Label>
+        <Label Content="相手先" HorizontalAlignment="Left" Height="19" Margin="347,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="167" BorderBrush="Black" HorizontalContentAlignment="Center" BorderThickness="1" VerticalContentAlignment="Center" Padding="0">
+            <Label.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+            </Label.Background>
+        </Label>
+        <Label Content="摘要" HorizontalAlignment="Left" Height="19" Margin="513,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="215" BorderBrush="Black" HorizontalContentAlignment="Center" BorderThickness="1" VerticalContentAlignment="Center" Padding="0">
+            <Label.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+            </Label.Background>
+        </Label>
+        <Label Content="金額" HorizontalAlignment="Left" Height="19" Margin="727,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="87" BorderBrush="Black" HorizontalContentAlignment="Center" BorderThickness="1" VerticalContentAlignment="Center" Padding="0">
+            <Label.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+            </Label.Background>
+        </Label>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="347,29,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="167" BorderBrush="Black"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="513,29,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" BorderBrush="Black"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="727,29,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="87" BorderBrush="Black"/>
+        <ComboBox HorizontalAlignment="Left" Margin="180,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="167" Height="25"/>
+        <Button x:Name="updateButton" Content="更新" HorizontalAlignment="Left" Height="25" Margin="824,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45"/>
+        <Button x:Name="deleteButton" Content="削除" HorizontalAlignment="Left" Height="25" Margin="824,36,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45"/>
+    </Grid>
+</Window>
