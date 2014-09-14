@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,28 @@ namespace AccountBookSystem
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			Close();
+		}
+
+		private void receiptJournal_Loaded(object sender, RoutedEventArgs e)
+		{
+			// 現在日時を取得
+			DateTime today = DateTime.Today;
+			
+			// 月
+			this.monthNum.SelectedIndex = today.Month - 1;
+			
+			// 年 - 和暦変換
+			JapaneseCalendar jcal = new JapaneseCalendar();
+			string[] 元号名 = { "明治", "大正", "昭和", "平成" };
+			// コンボボックスのリストに入れる
+			foreach(string wareki in 元号名){
+				this.warekiSelect.Items.Add(wareki);
+			}
+			// 選択
+			this.warekiSelect.SelectedIndex = jcal.GetEra(today) - 1;
+			
+			// 和暦の年数
+			this.warekiNum.Text = jcal.GetYear(today).ToString();
 		}
 
 
