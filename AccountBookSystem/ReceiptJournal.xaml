@@ -1,7 +1,7 @@
 ﻿<Window x:Name="receiptJournal" x:Class="AccountBookSystem.ReceiptJournal"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="出納帳" Height="300" Width="895.375" Loaded="receiptJournal_Loaded">
+        Title="出納帳" Height="383" Width="1061.375" Loaded="receiptJournal_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
@@ -58,21 +58,21 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
             </Label.Background>
         </Label>
-        <Label Content="摘要" HorizontalAlignment="Left" Height="19" Margin="513,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="215" BorderBrush="Black" HorizontalContentAlignment="Center" BorderThickness="1" VerticalContentAlignment="Center" Padding="0">
+        <Label Content="摘要" HorizontalAlignment="Left" Height="19" Margin="513,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="359" BorderBrush="Black" HorizontalContentAlignment="Center" BorderThickness="1" VerticalContentAlignment="Center" Padding="0">
             <Label.Background>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
             </Label.Background>
         </Label>
-        <Label Content="金額" HorizontalAlignment="Left" Height="19" Margin="727,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="87" BorderBrush="Black" HorizontalContentAlignment="Center" BorderThickness="1" VerticalContentAlignment="Center" Padding="0">
+        <Label Content="金額" HorizontalAlignment="Left" Height="19" Margin="871,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="121" BorderBrush="Black" HorizontalContentAlignment="Center" BorderThickness="1" VerticalContentAlignment="Center" Padding="0">
             <Label.Background>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
             </Label.Background>
         </Label>
         <TextBox HorizontalAlignment="Left" Height="25" Margin="347,29,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="167" BorderBrush="Black"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="513,29,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" BorderBrush="Black"/>
-        <TextBox HorizontalAlignment="Left" Height="25" Margin="727,29,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="87" BorderBrush="Black"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="513,29,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="359" BorderBrush="Black"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="871,29,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="121" BorderBrush="Black"/>
         <ComboBox HorizontalAlignment="Left" Margin="180,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="167" Height="25"/>
-        <Button x:Name="updateButton" Content="更新" HorizontalAlignment="Left" Height="25" Margin="824,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45"/>
-        <Button x:Name="deleteButton" Content="削除" HorizontalAlignment="Left" Height="25" Margin="824,36,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45"/>
+        <Button x:Name="updateButton" Content="更新" HorizontalAlignment="Left" Height="25" Margin="998,6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45"/>
+        <Button x:Name="deleteButton" Content="削除" HorizontalAlignment="Left" Height="25" Margin="998,37,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45"/>
     </Grid>
 </Window>
