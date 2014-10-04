@@ -74,5 +74,6 @@
         <ComboBox HorizontalAlignment="Left" Margin="180,29,0,0" Grid.Row="1" VerticalAlignment="Top" Width="167" Height="25"/>
         <Button x:Name="updateButton" Content="更新" HorizontalAlignment="Left" Height="25" Margin="998,6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45"/>
         <Button x:Name="deleteButton" Content="削除" HorizontalAlignment="Left" Height="25" Margin="998,37,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45"/>
+        <DataGrid x:Name="viewDataGrid" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="2" Width="1033"/>
     </Grid>
 </Window>
